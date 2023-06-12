@@ -13,6 +13,8 @@
 
   /* Typography */
   --font-family: 'Outfit', sans-serif;
+
+  --transition: all 0.2s ease-in-out;
 }
 
 *,
@@ -26,6 +28,16 @@ html {
 
 html {
   background-color: var(--navy);
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* TYPOGRAPHY */
@@ -66,4 +78,33 @@ body {
   letter-spacing: 1px;
   line-height: 20px;
   text-transform: uppercase;
+}
+
+/* UI */
+.button-lg {
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  border-radius: 15px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  box-shadow: inset 0px -8px 0px #cc8b13;
+}
+.btn-gold:hover {
+  background-color: var(--gold-accent);
+  transform: translateY(-2px);
+}
+
+.btn-cyan {
+  background-color: var(--cyan);
+  box-shadow: inset 0px -8px 0px #118c87;
+}
+.btn-cyan:hover {
+  background-color: var(--cyan-accent);
+  transform: translateY(-2px);
 }

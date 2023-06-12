@@ -1,7 +1,9 @@
+import Menu from './layouts/Menu/Menu';
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div className="app">
+      <Menu />
     </div>
   );
 }

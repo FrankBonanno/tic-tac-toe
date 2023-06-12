@@ -1,0 +1,76 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  width: 460px;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: var(--light-navy);
+  padding: 1.5rem 1.5rem 1.875rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: inset 0px -8px 0px #10212a;
+}
+
+.menu-container h1 {
+  margin-bottom: 1.5rem;
+}
+
+.menu-container p {
+  margin-top: 1rem;
+}
+
+.player-select {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: var(--navy);
+  gap: 0;
+  border-radius: 10px;
+}
+
+.player-select-btn {
+  width: 100%;
+  padding: 0.625rem;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.player-select-btn:hover {
+  background-color: var(--light-navy);
+}
+
+.player-select-btn img {
+  filter: invert(80%) sepia(10%) saturate(451%) hue-rotate(153deg) brightness(93%) contrast(89%);
+}
+
+.player-selection {
+  width: 2rem;
+  height: 2rem;
+}
+
+.player-selected {
+  background-color: var(--silver);
+  cursor: default;
+  pointer-events: none;
+}
+.player-selected img {
+  filter: invert(12%) sepia(10%) saturate(2040%) hue-rotate(158deg) brightness(99%) contrast(92%);
+}
+
+.play-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.25rem;
+}
