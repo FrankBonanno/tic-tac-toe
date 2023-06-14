@@ -1,9 +1,11 @@
 import Menu from './layouts/Menu/Menu';
+import Board from './layouts/Board/Board';
 
 function App() {
   return (
     <div className="app">
-      <Menu />
+      {/* <Menu /> */}
+      <Board />
     </div>
   );
 }
