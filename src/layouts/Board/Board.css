@@ -1,0 +1,76 @@
+.Board__container {
+  width: 460px;
+  display: flex;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.Board__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Board_player {
+  display: flex;
+  align-items: center;
+  color: var(--silver);
+  background-color: var(--light-navy);
+  padding: 13px 30px 19px;
+  border-radius: 10px;
+  box-shadow: inset 0px -4px 0px #10212a;
+  gap: 13px;
+  width: 140px;
+  margin-right: 1.1rem;
+}
+
+.Board_player img {
+  filter: invert(80%) sepia(10%) saturate(451%) hue-rotate(153deg) brightness(93%) contrast(89%);
+}
+
+.restart-btn-sm {
+  background-color: var(--silver);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px -4px 0px #6b8997;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.restart-btn-sm:hover {
+  background-color: var(--silver-accent);
+  transform: translateY(-1px);
+}
+
+.Board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.Board__item {
+  width: 8.75rem;
+  height: 8.75rem;
+  background-color: var(--light-navy);
+  border-radius: 15px;
+  box-shadow: inset 0px -8px 0px #10212a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cyan-filter {
+  filter: invert(54%) sepia(12%) saturate(1655%) hue-rotate(129deg) brightness(111%) contrast(120%);
+}
+
+.gold-filter {
+  filter: invert(67%) sepia(49%) saturate(660%) hue-rotate(352deg) brightness(104%) contrast(90%);
+}
