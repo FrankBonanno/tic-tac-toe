@@ -36,6 +36,21 @@ const Board = () => {
           );
         })}
       </div>
+
+      <div className="Board__scores">
+        <div className="Board__x-score">
+          <p>X (YOU)</p>
+          <h3 className="heading-md">0</h3>
+        </div>
+        <div className="Board__tie-score">
+          <p>TIES</p>
+          <h3 className="heading-md">0</h3>
+        </div>
+        <div className="Board__o-score">
+          <p>O (CPU)</p>
+          <h3 className="heading-md">0</h3>
+        </div>
+      </div>
     </div>
   );
 };

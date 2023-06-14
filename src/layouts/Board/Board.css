@@ -74,3 +74,31 @@
 .gold-filter {
   filter: invert(67%) sepia(49%) saturate(660%) hue-rotate(352deg) brightness(104%) contrast(90%);
 }
+
+.Board__scores {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Board__scores div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 4.5rem;
+  width: 140px;
+  border-radius: 15px;
+  color: var(--navy);
+}
+
+.Board__x-score {
+  background-color: var(--cyan);
+}
+.Board__tie-score {
+  background-color: var(--silver);
+}
+.Board__o-score {
+  background-color: var(--gold);
+}
