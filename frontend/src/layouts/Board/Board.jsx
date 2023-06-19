@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Board.css';
 
 import logo from '../../assets/logo.svg';
 import XLogo from '../../assets/icon-x.svg';
+import XOutline from '../../assets/icon-x-outline.svg';
 import OLogo from '../../assets/icon-o.svg';
+import OOutline from '../../assets/icon-o-outline.svg';
 import RestartLogo from '../../assets/icon-restart.svg';
 
 import { TicTacToeContext } from '../../contexts/TicTacToeContext';
@@ -13,6 +15,7 @@ import DrawPage from '../WinPages/DrawPage';
 
 const Board = () => {
   const { board, updateBoard, currentPlayer, winner } = useContext(TicTacToeContext);
+  const [hoveredCell, setHoveredCell] = useState(null);
 
   if (winner === 'o') {
     return <OWinPage />;
@@ -39,8 +42,17 @@ const Board = () => {
 
       <div className="Board">
         {board.map((item, index) => {
+          const isCellEmpty = !item;
+          const isXPlayer = currentPlayer === 'x';
+
           return (
-            <div className="Board__item" key={index} onClick={() => updateBoard(index)}>
+            <div
+              className={`Board__item ${isCellEmpty && hoveredCell === index ? 'hovered' : ''}`}
+              key={index}
+              onClick={() => updateBoard(index)}
+              onMouseEnter={() => setHoveredCell(index)}
+              onMouseLeave={() => setHoveredCell(null)}
+            >
               <img
                 src={item && item === 'x' ? XLogo : item === 'o' ? OLogo : ''}
                 width={item && 72}
@@ -48,6 +60,12 @@ const Board = () => {
                 className={`${item === 'x' ? 'cyan-filter' : item === 'o' ? 'gold-filter' : ''}`}
                 alt=""
               />
+              {isCellEmpty && isXPlayer && hoveredCell === index && (
+                <img src={XOutline} className="outline-symbol" alt="Outline Symbol" />
+              )}
+              {isCellEmpty && !isXPlayer && hoveredCell === index && (
+                <img src={OOutline} className="outline-symbol" alt="Outline Symbol" />
+              )}
             </div>
           );
         })}
