@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Board.css';
 
 import logo from '../../assets/logo.svg';
@@ -6,12 +6,22 @@ import XLogo from '../../assets/icon-x.svg';
 import OLogo from '../../assets/icon-o.svg';
 import RestartLogo from '../../assets/icon-restart.svg';
 
-const tempBoard = Array(9).fill({
-  value: null,
-  isX: null,
-});
+import { TicTacToeContext } from '../../contexts/TicTacToeContext';
+import OWinPage from '../WinPages/OWinPage';
+import XWinPage from '../WinPages/XWinPage';
+import DrawPage from '../WinPages/DrawPage';
 
 const Board = () => {
+  const { board, updateBoard, currentPlayer, winner } = useContext(TicTacToeContext);
+
+  if (winner === 'o') {
+    return <OWinPage />;
+  } else if (winner === 'x') {
+    return <XWinPage />;
+  } else if (winner === 'draw') {
+    return <DrawPage />;
+  }
+
   return (
     <div className="Board__container">
       <div className="Board__header">
@@ -28,10 +38,16 @@ const Board = () => {
       </div>
 
       <div className="Board">
-        {tempBoard.map((item, index) => {
+        {board.map((item, index) => {
           return (
-            <div className="Board__item" key={index}>
-              <img src={item.value} className={`${item.isX ? 'cyan-filter' : 'gold-filter'}`} />
+            <div className="Board__item" key={index} onClick={() => updateBoard(index)}>
+              <img
+                src={item && item === 'x' ? XLogo : item === 'o' ? OLogo : ''}
+                width={item && 72}
+                height={item && 72}
+                className={`${item === 'x' ? 'cyan-filter' : item === 'o' ? 'gold-filter' : ''}`}
+                alt=""
+              />
             </div>
           );
         })}
