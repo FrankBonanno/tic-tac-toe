@@ -15,10 +15,10 @@ const PlayerSelect = () => {
   return (
     <div className="player-select ">
       <button className={`player-select-btn ${player === 'X' ? 'player-selected' : ''}`} onClick={() => switchPlayer()}>
-        <img src={XLogo} className="player-selection" />
+        <img src={XLogo} className="player-selection" alt="x symbol" />
       </button>
       <button className={`player-select-btn ${player === 'O' ? 'player-selected' : ''}`} onClick={() => switchPlayer()}>
-        <img src={OLogo} className="player-selection" />
+        <img src={OLogo} className="player-selection" alt="o symbol" />
       </button>
     </div>
   );
