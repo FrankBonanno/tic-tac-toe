@@ -46,7 +46,6 @@ const TicTacToeProvider = ({ children }) => {
       const [a, b, c] = combination;
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         setWinner(board[a]);
-        console.log(winner);
         return;
       }
     }
