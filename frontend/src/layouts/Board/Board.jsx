@@ -12,18 +12,12 @@ import { TicTacToeContext } from '../../contexts/TicTacToeContext';
 import OWinPage from '../WinPages/OWinPage';
 import XWinPage from '../WinPages/XWinPage';
 import DrawPage from '../WinPages/DrawPage';
+import RestartPage from '../WinPages/RestartPage';
 
 const Board = () => {
   const { board, updateBoard, currentPlayer, winner } = useContext(TicTacToeContext);
   const [hoveredCell, setHoveredCell] = useState(null);
-
-  if (winner === 'o') {
-    return <OWinPage />;
-  } else if (winner === 'x') {
-    return <XWinPage />;
-  } else if (winner === 'draw') {
-    return <DrawPage />;
-  }
+  const [isRestarting, setIsRestarting] = useState(false);
 
   return (
     <div className="Board__container">
@@ -35,7 +29,7 @@ const Board = () => {
           <h1 className="heading-xs">TURN</h1>
         </div>
 
-        <button className="restart-btn-sm">
+        <button className="restart-btn-sm" onClick={() => setIsRestarting(true)}>
           <img src={RestartLogo} width={20} height={20} alt="X Logo" />
         </button>
       </div>
@@ -70,6 +64,11 @@ const Board = () => {
           );
         })}
       </div>
+
+      {winner === 'o' && <OWinPage />}
+      {winner === 'x' && <XWinPage />}
+      {winner === 'draw' && <DrawPage />}
+      {isRestarting && <RestartPage />}
 
       <div className="Board__scores">
         <div className="Board__x-score">

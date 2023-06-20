@@ -67,6 +67,11 @@
   align-items: center;
 }
 
+.outline-symbol {
+  width: 72px;
+  height: 72px;
+}
+
 .cyan-filter {
   filter: invert(54%) sepia(12%) saturate(1655%) hue-rotate(129deg) brightness(111%) contrast(120%);
 }
