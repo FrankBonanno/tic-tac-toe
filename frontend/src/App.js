@@ -1,13 +1,12 @@
 import Menu from './layouts/Menu/Menu';
 import Board from './layouts/Board/Board';
+import { TicTacToeContext } from './contexts/TicTacToeContext';
+import { useContext } from 'react';
 
 function App() {
-  return (
-    <div className="app">
-      {/* <Menu /> */}
-      <Board />
-    </div>
-  );
+  const { mode } = useContext(TicTacToeContext);
+
+  return <div className="app">{mode === '' ? <Menu /> : <Board />}</div>;
 }
 
 export default App;

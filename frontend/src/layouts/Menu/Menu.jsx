@@ -1,8 +1,12 @@
 import './Menu.css';
 import logo from '../../assets/logo.svg';
 import PlayerSelect from '../../components/PlayerSelect';
+import { useContext } from 'react';
+import { TicTacToeContext } from '../../contexts/TicTacToeContext';
 
 const Menu = () => {
+  const { setMode } = useContext(TicTacToeContext);
+
   return (
     <div className="menu">
       <img src={logo} width={72} height={32} alt="X and O Logo" />
@@ -13,11 +17,11 @@ const Menu = () => {
         <p>REMEMBER: X GOES FIRST</p>
       </div>
 
-      <div className="play-buttons">
+      <div className="play-buttons" onClick={() => setMode('cpu')}>
         <button className="button-lg btn-gold">
           <h3 className="heading-xs">NEW GAME (VS CPU)</h3>
         </button>
-        <button className="button-lg btn-cyan">
+        <button className="button-lg btn-cyan" onClick={() => setMode('local')}>
           <h3 className="heading-xs">NEW GAME (VS PLAYER)</h3>
         </button>
       </div>
