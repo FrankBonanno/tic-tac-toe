@@ -1,5 +1,6 @@
 import React from 'react';
 import './Popup.css';
+// popup gone?
 
 const Popup = ({ children }) => {
   return (
