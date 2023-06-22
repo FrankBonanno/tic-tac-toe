@@ -16,4 +16,7 @@
   width: 100%;
   background-color: var(--light-navy);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -94,6 +94,15 @@ body {
   transition: var(--transition);
 }
 
+.btn-sm {
+  border-radius: 10px;
+  padding: 0.9rem 1rem 1.1rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--navy) !important;
+}
+
 .btn-gold {
   background-color: var(--gold);
   box-shadow: inset 0px -8px 0px #cc8b13;
@@ -109,5 +118,14 @@ body {
 }
 .btn-cyan:hover {
   background-color: var(--cyan-accent);
+  transform: translateY(-2px);
+}
+
+.btn-silver {
+  background-color: var(--silver);
+  box-shadow: 0px -4px 0px 0px #6b8997 inset;
+}
+.btn-silver:hover {
+  background-color: var(--silver-accent);
   transform: translateY(-2px);
 }
