@@ -19,6 +19,11 @@
   gap: 1rem;
 }
 
+.win-logo {
+  width: 4rem;
+  height: 4rem;
+}
+
 .restart-ctx {
   display: flex;
   flex-direction: column;

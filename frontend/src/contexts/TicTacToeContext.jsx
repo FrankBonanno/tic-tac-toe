@@ -10,6 +10,7 @@ const TicTacToeProvider = ({ children }) => {
   const [winner, setWinner] = useState(null);
   const [player1, setPlayer1] = useState('x');
   const [mode, setMode] = useState('');
+  const [scores, setScores] = useState({ x: 0, ties: 0, o: 0 });
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
@@ -48,19 +49,28 @@ const TicTacToeProvider = ({ children }) => {
       const [a, b, c] = combination;
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         setWinner(board[a]);
+        const win = board[a];
+        setScores((prevScores) => ({
+          ...prevScores,
+          [win]: prevScores[win] + 1,
+        }));
         return;
       }
     }
 
     if (board.every((cell) => cell !== null)) {
       setWinner('draw');
+      setScores((prevScores) => ({
+        ...prevScores,
+        ties: prevScores.ties + 1,
+      }));
     }
   };
 
   // Provide the context value to consuming components
   return (
     <TicTacToeContext.Provider
-      value={{ board, currentPlayer, winner, resetGame, updateBoard, mode, setMode, player1, setPlayer1 }}
+      value={{ board, currentPlayer, winner, resetGame, updateBoard, mode, setMode, player1, setPlayer1, scores, setScores }}
     >
       {children}
     </TicTacToeContext.Provider>

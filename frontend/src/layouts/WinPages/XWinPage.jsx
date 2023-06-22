@@ -11,7 +11,7 @@ const XWinPage = () => {
       <div className="x-win-cont">
         <h3 className="heading-xs">You Won!</h3>
         <div className="x-win-title">
-          <img src={XLogo} alt="X Symbol" />
+          <img src={XLogo} className="win-logo" alt="X Symbol" />
           <h2 className="heading-lg">TAKES THE ROUND</h2>
         </div>
         <div className="x-win-btns">

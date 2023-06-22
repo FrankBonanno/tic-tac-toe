@@ -15,7 +15,7 @@ import DrawPage from '../WinPages/DrawPage';
 import RestartPage from '../WinPages/RestartPage';
 
 const Board = () => {
-  const { board, updateBoard, currentPlayer, winner, player1 } = useContext(TicTacToeContext);
+  const { board, updateBoard, currentPlayer, winner, player1, scores } = useContext(TicTacToeContext);
   const [hoveredCell, setHoveredCell] = useState(null);
   const [isRestarting, setIsRestarting] = useState(false);
 
@@ -73,15 +73,15 @@ const Board = () => {
       <div className="Board__scores">
         <div className="Board__x-score">
           <p>X ({player1 === 'x' ? 'P1' : 'P2'})</p>
-          <h3 className="heading-md">0</h3>
+          <h3 className="heading-md">{scores.x}</h3>
         </div>
         <div className="Board__tie-score">
           <p>TIES</p>
-          <h3 className="heading-md">0</h3>
+          <h3 className="heading-md">{scores.ties}</h3>
         </div>
         <div className="Board__o-score">
           <p>O ({player1 === 'o' ? 'P1' : 'P2'})</p>
-          <h3 className="heading-md">0</h3>
+          <h3 className="heading-md">{scores.o}</h3>
         </div>
       </div>
     </div>
