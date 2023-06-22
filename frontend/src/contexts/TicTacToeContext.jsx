@@ -8,7 +8,7 @@ const TicTacToeProvider = ({ children }) => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState('x');
   const [winner, setWinner] = useState(null);
-  const [player1, setPlayer1] = useState('');
+  const [player1, setPlayer1] = useState('x');
   const [mode, setMode] = useState('');
 
   const resetGame = () => {
@@ -59,7 +59,9 @@ const TicTacToeProvider = ({ children }) => {
 
   // Provide the context value to consuming components
   return (
-    <TicTacToeContext.Provider value={{ board, currentPlayer, winner, resetGame, updateBoard, mode, setMode }}>
+    <TicTacToeContext.Provider
+      value={{ board, currentPlayer, winner, resetGame, updateBoard, mode, setMode, player1, setPlayer1 }}
+    >
       {children}
     </TicTacToeContext.Provider>
   );

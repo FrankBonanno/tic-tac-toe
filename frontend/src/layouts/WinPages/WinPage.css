@@ -1,5 +1,22 @@
-.OWinPage {
-  background-color: red;
+.x-win-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: center;
+  align-items: center;
+}
+.x-win-title {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  color: var(--cyan) !important;
+}
+.x-win-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
 }
 
 .restart-ctx {
