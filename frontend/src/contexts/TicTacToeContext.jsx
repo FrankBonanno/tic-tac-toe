@@ -1,16 +1,21 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 // Create the TicTacToeContext
 const TicTacToeContext = createContext();
 
 // Create a TicTacToeProvider component to wrap the app
 const TicTacToeProvider = ({ children }) => {
-  const [board, setBoard] = useState(Array(9).fill(null));
-  const [currentPlayer, setCurrentPlayer] = useState('x');
+  const initialBoard = JSON.parse(localStorage.getItem('board')) || Array(9).fill(null);
+  const initialScores = JSON.parse(localStorage.getItem('scores')) || { x: 0, ties: 0, o: 0 };
+  const initialMode = JSON.parse(localStorage.getItem('mode')) || '';
+  const initialCurrentPlayer = JSON.parse(localStorage.getItem('currPlayer')) || 'x';
+
+  const [board, setBoard] = useState(initialBoard);
+  const [currentPlayer, setCurrentPlayer] = useState(initialCurrentPlayer);
   const [winner, setWinner] = useState(null);
   const [player1, setPlayer1] = useState('x');
-  const [mode, setMode] = useState('');
-  const [scores, setScores] = useState({ x: 0, ties: 0, o: 0 });
+  const [mode, setMode] = useState(initialMode);
+  const [scores, setScores] = useState(initialScores);
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
@@ -66,6 +71,13 @@ const TicTacToeProvider = ({ children }) => {
       }));
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem('board', JSON.stringify(board));
+    localStorage.setItem('scores', JSON.stringify(scores));
+    localStorage.setItem('mode', JSON.stringify(mode));
+    localStorage.setItem('currPlayer', JSON.stringify(currentPlayer));
+  }, [board, scores, mode, currentPlayer]);
 
   // Provide the context value to consuming components
   return (
