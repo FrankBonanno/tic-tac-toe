@@ -6,10 +6,15 @@ import { TicTacToeContext } from '../contexts/TicTacToeContext';
 // Styles in Menu.css
 
 const PlayerSelect = () => {
-  const { player1, setPlayer1 } = useContext(TicTacToeContext);
+  const { player1, setPlayer1, setScores } = useContext(TicTacToeContext);
 
   const switchPlayer = () => {
     setPlayer1(player1 === 'x' ? 'o' : 'x');
+    setScores((prev) => ({
+      x: prev.o,
+      ties: prev.ties,
+      o: prev.x,
+    }));
   };
 
   return (

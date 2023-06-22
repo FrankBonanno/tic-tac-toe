@@ -24,7 +24,9 @@ const XWinPage = () => {
           >
             quit
           </button>
-          <button className="btn-sm btn-gold-sm heading-xs">next round</button>
+          <button className="btn-sm btn-gold-sm heading-xs" onClick={() => resetGame()}>
+            next round
+          </button>
         </div>
       </div>
     </Popup>
