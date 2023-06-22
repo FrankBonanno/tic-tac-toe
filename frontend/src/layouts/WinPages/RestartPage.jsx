@@ -1,10 +1,11 @@
 import React from 'react';
+import Popup from '../../components/Popup/Popup';
 
 const RestartPage = () => {
   return (
-    <div>
+    <Popup>
       <h1>RestartPage</h1>
-    </div>
+    </Popup>
   );
 };
 

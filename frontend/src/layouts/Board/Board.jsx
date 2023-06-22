@@ -21,6 +21,11 @@ const Board = () => {
 
   return (
     <div className="Board__container">
+      {winner === 'o' && <OWinPage />}
+      {winner === 'x' && <XWinPage />}
+      {winner === 'draw' && <DrawPage />}
+      {isRestarting && <RestartPage />}
+
       <div className="Board__header">
         <img src={logo} width={72} height={32} alt="X and O Logo" />
 
@@ -64,11 +69,6 @@ const Board = () => {
           );
         })}
       </div>
-
-      {winner === 'o' && <OWinPage />}
-      {winner === 'x' && <XWinPage />}
-      {winner === 'draw' && <DrawPage />}
-      {isRestarting && <RestartPage />}
 
       <div className="Board__scores">
         <div className="Board__x-score">
