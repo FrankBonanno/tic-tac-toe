@@ -103,11 +103,17 @@ body {
   color: var(--navy) !important;
 }
 
+.btn-gold-sm {
+  background-color: var(--gold);
+  box-shadow: 0px -4px 0px 0px #cc8b13 inset !important;
+}
+
 .btn-gold {
   background-color: var(--gold);
   box-shadow: inset 0px -8px 0px #cc8b13;
 }
-.btn-gold:hover {
+.btn-gold:hover,
+.btn-gold-sm:hover {
   background-color: var(--gold-accent);
   transform: translateY(-2px);
 }
