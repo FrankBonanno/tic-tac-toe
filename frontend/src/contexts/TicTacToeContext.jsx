@@ -72,17 +72,35 @@ const TicTacToeProvider = ({ children }) => {
     }
   };
 
+  const resetScores = () => {
+    setScores({ x: 0, ties: 0, o: 0 });
+    localStorage.setItem('scores', JSON.stringify(scores));
+  };
+
   useEffect(() => {
     localStorage.setItem('board', JSON.stringify(board));
     localStorage.setItem('scores', JSON.stringify(scores));
-    localStorage.setItem('mode', JSON.stringify(mode));
     localStorage.setItem('currPlayer', JSON.stringify(currentPlayer));
-  }, [board, scores, mode, currentPlayer]);
+    localStorage.setItem('mode', JSON.stringify(mode));
+  }, [board, scores, currentPlayer, mode]);
 
   // Provide the context value to consuming components
   return (
     <TicTacToeContext.Provider
-      value={{ board, currentPlayer, winner, resetGame, updateBoard, mode, setMode, player1, setPlayer1, scores, setScores }}
+      value={{
+        board,
+        currentPlayer,
+        winner,
+        resetGame,
+        updateBoard,
+        mode,
+        setMode,
+        player1,
+        setPlayer1,
+        scores,
+        setScores,
+        resetScores,
+      }}
     >
       {children}
     </TicTacToeContext.Provider>

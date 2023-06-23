@@ -4,7 +4,7 @@ import XLogo from '../../assets/icon-x-cyan.svg';
 import { TicTacToeContext } from '../../contexts/TicTacToeContext';
 
 const XWinPage = () => {
-  const { setMode, resetGame } = useContext(TicTacToeContext);
+  const { setMode, resetGame, resetScores } = useContext(TicTacToeContext);
 
   return (
     <Popup>
@@ -20,6 +20,7 @@ const XWinPage = () => {
             onClick={() => {
               resetGame();
               setMode('');
+              resetScores();
             }}
           >
             quit

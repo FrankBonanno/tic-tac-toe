@@ -17,11 +17,23 @@ const Menu = () => {
         <p>REMEMBER: X GOES FIRST</p>
       </div>
 
-      <div className="play-buttons" onClick={() => setMode('cpu')}>
-        <button className="button-lg btn-gold">
+      <div className="play-buttons">
+        <button
+          className="button-lg btn-gold"
+          onClick={() => {
+            setMode('cpu');
+            localStorage.setItem('mode', JSON.stringify('cpu'));
+          }}
+        >
           <h3 className="heading-xs">NEW GAME (VS CPU)</h3>
         </button>
-        <button className="button-lg btn-cyan" onClick={() => setMode('local')}>
+        <button
+          className="button-lg btn-cyan"
+          onClick={() => {
+            setMode('local');
+            localStorage.setItem('mode', JSON.stringify('local'));
+          }}
+        >
           <h3 className="heading-xs">NEW GAME (VS PLAYER)</h3>
         </button>
       </div>
