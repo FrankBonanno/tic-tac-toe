@@ -14,6 +14,7 @@ const TicTacToeProvider = ({ children }) => {
   const [currentPlayer, setCurrentPlayer] = useState(initialCurrentPlayer);
   const [winner, setWinner] = useState(null);
   const [player1, setPlayer1] = useState('x');
+  const [CPU, setCPU] = useState('o');
   const [mode, setMode] = useState(initialMode);
   const [scores, setScores] = useState(initialScores);
 
@@ -36,6 +37,29 @@ const TicTacToeProvider = ({ children }) => {
 
   const togglePlayer = () => {
     setCurrentPlayer(currentPlayer === 'x' ? 'o' : 'x');
+  };
+
+  const cpuMove = () => {
+    if (winner) return;
+
+    const emptyCells = board.reduce((acc, cell, index) => {
+      if (!cell) acc.push(index);
+      return acc;
+    }, []);
+
+    if (emptyCells.length === 0) return;
+
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * emptyCells.length);
+      const cpuMoveIndex = emptyCells[randomIndex];
+
+      const newBoard = [...board];
+      newBoard[cpuMoveIndex] = CPU;
+
+      setBoard(newBoard);
+      checkWinner(newBoard);
+      togglePlayer();
+    }, 500);
   };
 
   const checkWinner = (board) => {
@@ -84,6 +108,13 @@ const TicTacToeProvider = ({ children }) => {
     localStorage.setItem('mode', JSON.stringify(mode));
   }, [board, scores, currentPlayer, mode]);
 
+  useEffect(() => {
+    if (mode === 'cpu' && currentPlayer !== player1) {
+      // cpu turn?
+      cpuMove();
+    }
+  }, [currentPlayer]);
+
   // Provide the context value to consuming components
   return (
     <TicTacToeContext.Provider
@@ -100,6 +131,7 @@ const TicTacToeProvider = ({ children }) => {
         scores,
         setScores,
         resetScores,
+        setCPU,
       }}
     >
       {children}
