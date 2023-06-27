@@ -113,7 +113,7 @@ const TicTacToeProvider = ({ children }) => {
       // cpu turn?
       cpuMove();
     }
-  }, [currentPlayer]);
+  }, [currentPlayer, mode, scores, board]);
 
   // Provide the context value to consuming components
   return (
