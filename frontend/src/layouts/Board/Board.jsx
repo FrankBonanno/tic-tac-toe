@@ -59,10 +59,10 @@ const Board = () => {
                 className={`${item === 'x' ? 'cyan-filter' : item === 'o' ? 'gold-filter' : ''}`}
                 alt=""
               />
-              {isCellEmpty && isXPlayer && hoveredCell === index && currentPlayer === player1 && (
+              {isCellEmpty && isXPlayer && hoveredCell === index && (currentPlayer === player1 || mode !== 'cpu') && (
                 <img src={XOutline} className="outline-symbol" alt="Outline Symbol" />
               )}
-              {isCellEmpty && !isXPlayer && hoveredCell === index && currentPlayer === player1 && (
+              {isCellEmpty && !isXPlayer && hoveredCell === index && (currentPlayer === player1 || mode !== 'cpu') && (
                 <img src={OOutline} className="outline-symbol" alt="Outline Symbol" />
               )}
             </div>
