@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import XLogo from '../assets/icon-x.svg';
 import OLogo from '../assets/icon-o.svg';
 import { TicTacToeContext } from '../contexts/TicTacToeContext';
