@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Popup from '../../components/Popup/Popup';
 import XLogo from '../../assets/icon-x-cyan.svg';
 import { TicTacToeContext } from '../../contexts/TicTacToeContext';
+import './WinPage.css';
 
 const XWinPage = () => {
   const { setMode, resetGame, resetScores } = useContext(TicTacToeContext);

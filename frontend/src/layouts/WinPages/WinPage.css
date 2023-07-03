@@ -5,12 +5,20 @@
   text-align: center;
   align-items: center;
 }
-.x-win-title {
+.x-win-title,
+.o-win-title {
   display: flex;
   gap: 1.5rem;
   align-items: center;
+}
+.x-win-title {
   color: var(--cyan) !important;
 }
+
+.o-win-title {
+  color: var(--gold) !important;
+}
+
 .x-win-btns {
   display: flex;
   align-items: center;
